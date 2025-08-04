@@ -8,7 +8,6 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
-import "./app.css";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -62,14 +61,15 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
+    <main className="pt-16 p-5 mx-auto text-center flex items-center justify-center min-h-[100dvh] bg-blue-50">
+      <div>
+      <h1 className="text-[200px] leading-[1] text-blue-400 mb-2 font-bold tracking-widest text-shadow-blue-900 text-shadow-2xs">{message}</h1>
+      <p className="text-3xl text-blue-500">{details}</p>
       {stack && (
         <pre className="w-full p-4 overflow-x-auto">
           <code>{stack}</code>
         </pre>
-      )}
+      )}</div>
     </main>
   );
 }
