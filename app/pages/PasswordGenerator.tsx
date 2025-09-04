@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react"
+import { Link } from "react-router"
 
 const PasswordGenerator = () => {
     const [length, setLength] = useState(8)
@@ -38,6 +39,13 @@ const PasswordGenerator = () => {
 
     return (
         <>
+            <Link className="fixed top-5 left-5 text-white z-[99] bg-blue-500 py-2 px-4 rounded-4xl flex items-center gap-2" to="/">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                </svg>
+                Back
+            </Link>
+            
             <div className="p-5 bg-black min-h-[100dvh] flex flex-wrap justify-center items-center">
                 <div className="bg-gray-900 w-[560px] p-6 rounded-2xl">
                     <h1 className="text-2xl text-center text-white mb-5">Password Generator</h1>
@@ -61,7 +69,7 @@ const PasswordGenerator = () => {
                             <div className="flex gap-2">
                                 <input 
                                     type="range" 
-                                    min={6}
+                                    min={8}
                                     max={30}
                                     className="cursor-pointer" 
                                     value={length}
