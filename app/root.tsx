@@ -13,6 +13,7 @@ import "./index.css";
 
 import type { Route } from "./+types/root";
 import Navbar from "./components/Navbar";
+import { AuthProvider } from "./context/AuthContext"; // ✅ import AuthProvider
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -40,7 +41,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {location.pathname !== "/" && <Navbar />}
-        {children}
+        {/* ✅ Wrap everything in AuthProvider */}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -71,13 +75,16 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   return (
     <main className="pt-16 p-5 mx-auto text-center flex items-center justify-center min-h-[100dvh] bg-blue-50">
       <div>
-      <h1 className="text-[200px] leading-[1] text-blue-400 mb-2 font-bold tracking-widest text-shadow-blue-900 text-shadow-2xs">{message}</h1>
-      <p className="text-3xl text-blue-500">{details}</p>
-      {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
-        </pre>
-      )}</div>
+        <h1 className="text-[200px] leading-[1] text-blue-400 mb-2 font-bold tracking-widest text-shadow-blue-900 text-shadow-2xs">
+          {message}
+        </h1>
+        <p className="text-3xl text-blue-500">{details}</p>
+        {stack && (
+          <pre className="w-full p-4 overflow-x-auto">
+            <code>{stack}</code>
+          </pre>
+        )}
+      </div>
     </main>
   );
 }

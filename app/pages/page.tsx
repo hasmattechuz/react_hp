@@ -53,10 +53,14 @@ const index = () => {
         {/* absolute top-[50px] right-[50px] z-11 */}
             <div className="w-2xs text-center">
               <Link className="text-white" to="/color-platter/">Color Platter</Link> 
-              <hr className="border-white w-full my-6" />
+              <hr className="border-white/10 w-full my-6" />
               <Link className="text-white" to="/password">Password Generator</Link> 
-              <hr className="border-white w-full my-6" />
+              <hr className="border-white/10 w-full my-6" />
               <Link className="text-white" to="/converter">Currency Converter</Link> 
+              <hr className="border-white/10 w-full my-6" />
+              <Link className="text-white" to="/login">Login</Link> 
+              <hr className="border-white/10 w-full my-6" />
+              <Link className="text-white" to="/signup">Sign up</Link> 
             </div>
         </div>
       </div>
