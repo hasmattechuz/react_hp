@@ -40,9 +40,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {location.pathname !== "/" && <Navbar />}
         {/* ✅ Wrap everything in AuthProvider */}
         <AuthProvider>
+          {location.pathname !== "/" && <Navbar />}
           {children}
         </AuthProvider>
         <ScrollRestoration />
